@@ -1,5 +1,5 @@
 import { redirect, error } from '@sveltejs/kit';
-import { AUTH_KAKAO_ID, ORIGIN } from '$env/static/private';
+import { AUTH_KAKAO_ID, AUTH_GOOGLE_ID, ORIGIN } from '$env/static/private';
 
 const OAUTH_CONFIG = {
     kakao: (state) => {
@@ -12,6 +12,17 @@ const OAUTH_CONFIG = {
             `&state=${state}`;
     },
 
+    google: (state) => {
+        const redirectUri = `${ORIGIN}/auth/callback/google`;
+        const scope = encodeURIComponent('openid email profile');
+
+        return `https://accounts.google.com/o/oauth2/v2/auth` +
+            `?client_id=${AUTH_GOOGLE_ID}` +
+            `&redirect_uri=${encodeURIComponent(redirectUri)}` +
+            `&response_type=code` +
+            `&scope=${scope}` +
+            `&state=${state}`;
+    }
     // 예시: 나중에 Google 추가할 경우
     // google: () => { ... }
 

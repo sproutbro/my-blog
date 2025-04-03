@@ -4,7 +4,7 @@
 	}
 
 	function loginWithGoogle() {
-		console.log('구글 로그인');
+		window.location.href = '/auth/login/google';
 	}
 
 	function loginWithGithub() {
@@ -15,5 +15,4 @@
 <div class="oauth-buttons">
 	<button on:click={loginWithKakao}>🟡 Login with Kakao</button>
 	<button on:click={loginWithGoogle}>🔵 Login with Google</button>
-	<button on:click={loginWithGithub}>⚫ Login with GitHub</button>
 </div>
