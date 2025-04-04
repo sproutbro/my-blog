@@ -3,8 +3,6 @@ import { OAUTH_CALLBACK_HANDLER } from '$lib/oauth/callbackHandlers';
 
 /** @type {import('./$types').RequestHandler} */
 export async function GET({ url, params, cookies }) {
-    console.log(1)
-
     const provider = params.provider;
     const code = url.searchParams.get("code");
     const returnedState = url.searchParams.get("state");
