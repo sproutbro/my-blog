@@ -1,5 +1,5 @@
 import { json } from "@sveltejs/kit";
-import { saveScore } from "@lib/server/models/score.js";
+import { saveScore } from "$lib/server/models/score.js";
 
 /** @type {import('./$types').RequestHandler} */
 export async function POST({ request, locals }) {
@@ -8,7 +8,7 @@ export async function POST({ request, locals }) {
     }
 
     const { score } = await request.json();
-    saveScore({ userId: locals.user, game: "runner", score });
+    saveScore({ userId: locals.user.id, game: "runner", score });
 
     return json({});
 }

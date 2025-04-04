@@ -6,3 +6,4 @@ export async function saveScore({ userId, game, score }) {
         [userId, game, score]
     );
 }
+
