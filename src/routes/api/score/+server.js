@@ -2,7 +2,7 @@ import { json } from "@sveltejs/kit";
 import { saveScore } from "@lib/server/models/score.js";
 
 /** @type {import('./$types').RequestHandler} */
-export function POST({ request, locals }) {
+export async function POST({ request, locals }) {
     if (!locals.user) {
         return json({});
     }
